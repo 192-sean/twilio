@@ -3,6 +3,9 @@ Twilio Hacks
 
 First started because of the Fluent 2014 hackathon
 
+To run this code you will need to change the twCreds.js
+file with your information. 
+
 ---------------------------------------------------
 
 For the original hackathon code run the following from your terminal:
