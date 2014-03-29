@@ -1,9 +1,16 @@
 module.exports = {
-  TWILIO_SID: 'TWILIO_SID_HERE',
-  TWILIO_AUTHTOKEN: 'TWILIO_AUTHTOKEN_HERE',
-  TWILIO_NUMBER: 'YOUR_TWILIO_NUMBER',
-  TWILIO_HOSTNAME: 'htpps://YOUR_ACCOUNT.ngrok.com',
+  TWILIO_SID: 'AC021376cf8eddffdffce68645c1802f02',
+  TWILIO_AUTHTOKEN: '2e256e17461b9e439fae3c711a5741db',
+  TWILIO_NUMBER: '+17087164921',
+  TWILIO_HOSTNAME: 'http://70e9144c.ngrok.com',
+  TWILIO_TEST1: '+13127188814',
+  TWILIO_TEST2: '+14024405760'
 };
+
+if(module.exports.TWILIO_SID == 'TWILIO_SID_HERE'){
+  console.log('WRONG WRONG WRONG WRONG WRONG!!!!!!!');
+  console.log('You forget to put your twilio creds into twCreds.js. Please do that and try again.');
+}
 
 if(module.exports.TWILIO_SID == 'TWILIO_SID_HERE'){
   console.log('WRONG WRONG WRONG WRONG WRONG!!!!!!!');
