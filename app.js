@@ -3,7 +3,7 @@ var  express = require('express')
     , server = require('http').createServer(app)
     , twilio = require('twilio');
 
-// Load twilio properties
+//Load twilio properties
 //TODO: YOU NEED TO GO INTO THIS FILE AND PASTE YOUR TWILIO CREDS
 var twCreds = require('./twCreds');
 
@@ -12,7 +12,7 @@ var twCreds = require('./twCreds');
 var test2NUMBER = twCreds.TWILIO_TEST2;
 var test1NUMBER = twCreds.TWILIO_TEST1;
 var MY_NUMBER = twCreds.TWILIO_NUMBER;
-var MY_HOSTNAME = 'https://47aac796.ngrok.com';
+var MY_HOSTNAME = twCreds.TWILIO_HOSTNAME;
 var callMeMaybe = 'http://www.youtube.com/watch?v=RWAdb1vgoik';
 
 //console.log(test1Number + " test 2" + test2NUMBER);
@@ -63,7 +63,7 @@ twilioClient.calls.create({
     to: test1NUMBER,
     from: MY_NUMBER, 
     //url: "http://demo.twilio.com/docs/voice.xml",
-    url: "http://6e380a69.ngrok.com/response",  
+    url: "http://1a41eef.ngrok.com/response",  
     method: "GET",  
     fallbackMethod: "GET",  
     statusCallbackMethod: "GET",    
