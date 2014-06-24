@@ -11,6 +11,7 @@
 </audio>
 
 <p id="demo">Click the button to get your coordinates:</p>
+<p id="count"></p>
 
 <button onclick="getLocation()">Try It</button>
     </body>
@@ -18,16 +19,17 @@
 var x = document.getElementById("demo");
 var myVar = setInterval(function(){getLocation()},5000);
 
-var myGlobalObject = {}; 
-myGlobalObject.getAjax = function(){
-	$.ajax({
-            url:'/test/data',
-            type:'post', 
-            data: { value: 'some huge string here' }
-        }); 
+var y = document.getElementById("count");
+var count = 0;
+
+var printCount = {};
+printCount.printing = function(){
+    count++;
+    y.innerHTML = "Your count: " + count;
 }
 
-function sendData() {
+var myGlobalObject = {}; 
+myGlobalObject.getAjax = function(){
 	$.ajax({
             url:'/test/data',
             type:'post', 
