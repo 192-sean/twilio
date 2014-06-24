@@ -1,0 +1,67 @@
+<html>
+<body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<iframe src="background" style="display:none;"></iframe>
+<audio loop src="http://www.sousound.com/music/healing/healing_01.mp3"></audio>
+
+<audio controls>
+  <source src="http://www.sousound.com/music/healing/healing_01.mp3" type="audio/mpeg">
+  <embed height="50" width="100" src="horse.mp3">
+</audio>
+
+<p id="demo">Click the button to get your coordinates:</p>
+
+<button onclick="getLocation()">Try It</button>
+    </body>
+<script>
+var x = document.getElementById("demo");
+var myVar = setInterval(function(){getLocation()},5000);
+
+var myGlobalObject = {}; 
+myGlobalObject.getAjax = function(){
+	$.ajax({
+            url:'/test/data',
+            type:'post', 
+            data: { value: 'some huge string here' }
+        }); 
+}
+
+function sendData() {
+	$.ajax({
+            url:'/test/data',
+            type:'post', 
+            data: { value: 'some huge string here' }
+        }); 
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function format_time_component(time_component)
+{
+	if(time_component<10)
+		time_component="0"+time_component;
+	else if(time_component.length<2)
+		time_component=time_component+"0";
+		
+	return time_component;
+}
+
+function showPosition(position) {
+    info_string="";
+	var d=new Date(); // Date object, used below for output messahe
+	var h=d.getHours();
+	var m=d.getMinutes();
+	var s=d.getSeconds();
+    
+    var current_datetime=format_time_component(h)+":"+format_time_component(m)+":"+format_time_component(s);
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude + " <br>Time: " + current_datetime;	
+	}
+</script>
+
+</html>
